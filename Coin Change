@@ -3,6 +3,14 @@
 // Did this code successfully run on Leetcode : Yes
 // Any problem you faced while coding this : No
 
+// Your code here along with comments explaining your approach
+/*
+ * 1 - This problem we do case 1 + case 2 in recursion - same to be done in the DP table
+ * 2 - Solve it by recursion - observe TLE, build the recursion table, 
+ * 3 - zero case is coming from right above and one case comes from left hand side depending on the
+ * coin denomination. If 2, go two steps back. IF 5, go five steps back.
+ * 4 - Add both zero case and one case together
+ */
 
 
  // Using 2D DP
