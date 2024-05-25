@@ -1,0 +1,52 @@
+
+
+
+
+
+
+
+
+// Recursive way - You get TLE.
+
+class Solution {
+    public int coinChange(int[] coins, int amount) {
+
+        // Base case
+        if(coins.length == 0 || coins == null)
+        {
+            return -1;
+        }
+
+        return recursive (coins, amount, 0, 0);
+    }
+
+    private int recursive ( int[] coins, int amount, int index, int coinsUsed)
+    {
+        // Base Case
+        if(amount == 0)
+        {
+            return coinsUsed;
+        }
+        if(amount < 0 || index == coins.length )
+        {
+            return -1;
+        }
+        // Logic
+        // 0 or Do not use coin
+        int case1 = recursive ( coins, amount, index + 1, coinsUsed);
+        // 1 or Use coin
+        int case2 = recursive ( coins, amount - coins[index], index , coinsUsed + 1);
+
+        if (case1 == -1)
+        {
+            return case2;
+        }
+          if (case2 == -1)
+        {
+            return case1;
+        }
+
+        return Math.min(case1, case2);
+
+    }
+}
