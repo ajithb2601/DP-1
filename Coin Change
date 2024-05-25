@@ -1,5 +1,41 @@
 
 
+ // USIng 2D DP
+class Solution {
+    public int coinChange(int[] coins, int amount) {
+        // Base Case
+        if (coins.length == 0 || coins == null) {
+            return -1;
+        }
+
+        int[][] dp = new int[coins.length + 1][amount + 1]; // +1 = dummy row and +1 = dummy column.
+        
+        // Initialize the infinity column for the first row
+        for (int j = 1; j < amount + 1; j++) {
+            // Filling the zero row columns with amount + 1 to represent infinity
+            dp[0][j] = amount + 1;
+        }
+
+        for (int i = 1; i < coins.length + 1; i++) {
+            for (int j = 1; j < amount + 1; j++) {
+                if (j < coins[i - 1]) {
+                    dp[i][j] = dp[i - 1][j];
+                } else {
+                    dp[i][j] = Math.min(dp[i - 1][j], 1 + dp[i][j - coins[i - 1]]);
+                }
+            }
+        }
+
+        // Check if we found a solution
+        if (dp[coins.length][amount] == amount + 1) {
+            return -1;
+        }
+
+        return dp[coins.length][amount];
+    }
+}
+
+
 
 
 
