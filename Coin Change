@@ -21,6 +21,7 @@ class Solution {
             return -1;
         }
 
+        // By default my matrix is filled with 0's
         int[][] dp = new int[coins.length + 1][amount + 1]; // +1 = dummy row and +1 = dummy column.
         
         // Initialize the infinity column for the first row
