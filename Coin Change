@@ -1,6 +1,11 @@
+// Time Complexity : O(m*n)
+// Space Complexity :  O(m*n)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : No
 
 
- // USIng 2D DP
+
+ // Using 2D DP
 class Solution {
     public int coinChange(int[] coins, int amount) {
         // Base Case
@@ -38,8 +43,8 @@ class Solution {
 
 
 
-
-
+TC = O(2^n)
+SC = O(N)
 
 
 // Recursive way - You get TLE.
